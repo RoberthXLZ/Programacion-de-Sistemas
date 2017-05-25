@@ -1,12 +1,16 @@
 #include <stdio.h>
-char letra,letra1,letra2;
+void codificar();
 int main(){
 printf("******Bienvenido a mi programa de Encriptacion******\n");
 printf("*********Realizado en C++***************\n");
-//Pedir por teclado
-
+codificar();
+ return 0;
+}
+//Esta funcion me permite codificar una palabra
+void codificar(){
 int clave=0;
 char nombre[30]={0};
+//Pedir por teclado
 printf("Ingrese el mensaje: ");
 fgets(nombre,30,stdin);
 printf("Ingrese la clave Numerica: ");
@@ -36,8 +40,4 @@ for(int i=0; i<sizeof(nombre); i++){
 	}
 	printf("%c",nombre[i]);
 }
- return 0;
-}
-//Esta funcion me permite codificar una palabra
-void codificar(){
 }
