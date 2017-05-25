@@ -3,10 +3,6 @@ char letra,letra1,letra2;
 int main(){
 printf("******Bienvenido a mi programa de Encriptacion******\n");
 printf("*********Realizado en C++***************\n");
-  letra = 'A'; letra1='a'; letra2='B';
-  printf("La letra es %c y su valor decimal es %d.\n\n",letra,letra);
-  printf("La letra1 es %c y su valor decimal es %d.\n\n",letra1,letra1);
-  printf("La letra2 es %c y su valor decimal es %d.\n\n",letra2,letra2);
 //Pedir por teclado
 
 int clave=0;
@@ -26,11 +22,20 @@ for(int i=0; i<sizeof(nombre); i++){
 		else{
 		nombre[i]+=clave;
 		}
-	else if(){}
-	printf("Letra: %c\n codigoAsci: %d\n"  ,nombre[i],nombre[i]);
 	}
+	else if(nombre[i]>=97 && nombre[i]<=122){
+		if(nombre[i]+clave>122){
+	        nombre[i]=97-122+nombre[i]+clave-1;
+		}
+		else if(nombre[i]+clave<97){
+		nombre[i]=122-97+nombre[i]+clave+1;
+		}
+		else{
+		nombre[i]+=clave;
+		}		
+	}
+	printf("%c",nombre[i]);
 }
-printf("\n");
  return 0;
 }
 //Esta funcion me permite codificar una palabra
