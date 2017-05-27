@@ -1,17 +1,31 @@
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 void codificar();
-int main(){
-	int clave=0;
-	char nombre[30]={0};
-	printf("******Bienvenido a mi programa de Encriptacion******\n");
+void menu(int clave, char nombre[]);
+int clave=0;
+char nombre[30]={0};
+int main(int argc, char *argv[]){
+	printf("\n");
+	if(argc!=2){
+	printf("Numero de parametros Validos \n");
+	clave= atoi (argv[1]);	
+	strcpy(nombre, argv[2]);
+	printf("%d %s",clave, nombre);
+	codificar(clave, nombre);
+	}
+	else{
+	printf("Hola Mundo");
+	}
+
+/*	printf("******Bienvenido a mi programa de Encriptacion******\n");
 	printf("*********Realizado en C++***************\n");
 	//Pedir por teclado
 	printf("Ingrese el mensaje: ");
 	fgets(nombre,30,stdin);
 	printf("Ingrese la clave Numerica: ");
-	scanf("%d",&clave);
-	codificar(clave,nombre);
+	scanf("%d",&clave);*/
+  //codificar(clave,nombre);
  return 0;
 }
 //Esta funcion me permite codificar una palabra
@@ -41,4 +55,5 @@ for(int i=0; i<strlen(nombre); i++){
 	}
 	printf("%c",nombre[i]);
 }
+
 }
