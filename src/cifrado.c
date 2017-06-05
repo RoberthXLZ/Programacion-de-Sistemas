@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include "cifrado.h"
 char cifrado[100]={0};	char resultado[100]={0};
 //Esta funcion me permite codificar una palabra
 	char *cifradoCiclico(char* mensaje, int llave){

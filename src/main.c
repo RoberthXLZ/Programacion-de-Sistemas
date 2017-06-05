@@ -17,13 +17,40 @@ int main(int argc, char *argv[]){
 			printf("----Forma no interactiva-------- \n");
 			clave= atoi (argv[2]);	
 			strcpy(mensaje, argv[1]);
-			
-			printf("******Resultado*****\n");
-			printf("Codificacion ciclica:\t");			
-			//codificar(clave, mensaje);			
-			printf("Codificacion en morse:\t");
-			//codificar_morse(mensaje);	
+
+			if(*argv[3]=='c'){
+				printf("\n******Resultado*****\n");
+				printf("Codificacion ciclica: \n");
+			  	printf("CICLICO: %s",cifradoCiclico(mensaje,clave));
+				printf("Codificacion en morse:\t");
+				printf("%s",claveMorse(mensaje));	
+
+			}
+			else if(*argv[3]=='a'){
+				printf("Ingrese una contraseña: ");
+				fgets(password,100,stdin);
+				password[strlen(password) -1] ='\0';
+
+				printf("******Resultado*****\n");
+				printf("Codificacion Autollave:");
+				printf("%s",cifradoAutollave(mensaje,password));	
+			}
+			else if(*argv[3]=='p'){
+				printf("Ingrese una contraseña: ");
+				fgets(password,100,stdin);
+				password[strlen(password) -1] ='\0';
+				printf("******Resultado*****\n");
+				printf("Codificacion por contraseña:");	
+				printf("%s",cifradoContrasenia(mensaje,password));
+			}
+			else
+			{
+				printf("Tipo de Cifrado Inexistente"); 
+				
+			}
 		}
+			
+		
 		else if(argc==1){
 			printf("--------forma interativa-------\n");
 			//Pedir por teclado
@@ -33,7 +60,7 @@ int main(int argc, char *argv[]){
 			printf("\n");
 			printf("Ingrese una contraseña: ");
 			fgets(password,100,stdin);
-			password[strlen(mensaje) -1] ='\0';
+			password[strlen(password) -1] ='\0';
 			printf("Ingrese el tipo de Cifrado: ");
         		scanf("%c", &cifrado);
 			printf("\n");
@@ -44,7 +71,9 @@ int main(int argc, char *argv[]){
 			if(cifrado=='C'){
 				printf("\n******Resultado*****\n");
 				printf("Codificacion ciclica: \n");
-			  printf("CICLICO: %s",cifradoCiclico(mensaje,clave));
+			  	printf("CICLICO: %s",cifradoCiclico(mensaje,clave));
+				printf("Codificacion en morse:\t");
+				printf("%s",claveMorse(mensaje));
 			}
 			else if(cifrado=='A'){
 				printf("******Resultado*****\n");
@@ -61,18 +90,13 @@ int main(int argc, char *argv[]){
 				printf("Tipo de Cifrado Inexistente"); 
 				
 			}
-			printf("Ingrese la clave Numerica: ");
-			printf("******Resultado*****\n");
-			printf("Codificacion ciclica: ");
-		  	//printf("CICLICO: %s",codificar(clave,mensaje));
-			
 		}
 		
-	else
-	{
-	printf("Ingresode parametros mayor al solicitado	|\n");	
-	}	
+		else
+		{
+		printf("Ingresode parametros mayor al solicitado	|\n");	
+		}	
 	  
- return 0;
-	}
+ 	return 0;
+}
 

@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "codificacion.h"
 char nuevo[100]={0};
 
 char *claveMorse(char cadena []){
